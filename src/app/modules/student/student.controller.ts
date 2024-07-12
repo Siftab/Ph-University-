@@ -1,11 +1,10 @@
-import { RequestHandler } from 'express';
+import { NextFunction, Request, RequestHandler, Response } from 'express';
 import httpStatus from 'http-status';
 import sendResponse from '../../utils/sendResponse';
 import { StudentServices } from './student.service';
 import catchAsync from '../../utils/catchAsync';
 
 
-// higerorder function 
 
 const getSingleStudent: RequestHandler = catchAsync(async (
   req,
