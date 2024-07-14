@@ -21,7 +21,7 @@ export const zodAcademicSemesterSchema = z.object({
   body: z.object({
     name: z.enum(['Atumn', 'Summer', 'Falll']),
     code: z.enum(['01', '02', '03']),
-    year: z.date(),
+    year: z.string(),
     startMonth: TMonth, 
     endMonth: TMonth,
   }),

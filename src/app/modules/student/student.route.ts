@@ -4,14 +4,7 @@ import { AnyZodObject, ZodObject } from 'zod';
 
 const router = express.Router();
 // shenabahini 
-const validateRequest = (schema: AnyZodObject) => {
 
-    return async (req: Request, res: Response, next: NextFunction) => {
-
-        const zodParsedData = schema.parseAsync({ body: req.body })
-        next()
-    }
-}
 
 router.get('/:studentId', StudentControllers.getSingleStudent);
 
