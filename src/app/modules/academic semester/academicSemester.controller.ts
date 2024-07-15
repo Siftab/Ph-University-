@@ -9,7 +9,7 @@ import httpStatus from "http-status";
 
 const createAcdemicSemester = catchAsync(
     async(req,res)=>{
-      console.log("showing from  controller")
+      // console.log("showing from  controller")
         
          const result = await academicSemesterServices.createAcademicSemesterIntoDB(req.body)
 
