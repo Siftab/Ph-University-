@@ -17,7 +17,7 @@ const months :TMonth[] = [
 
 
 
-const academicSemesterSchema= new Schema<TacademicSemester>({
+export const academicSemesterSchema= new Schema<TacademicSemester>({
 
     name:{
         type:String,
@@ -42,5 +42,21 @@ const academicSemesterSchema= new Schema<TacademicSemester>({
 
 
 })
+academicSemesterSchema.pre("save", async function(next){
+
+    const isSemesterExists = await  AcademicSemester.findOne({
+      name:this.name,
+      year:this.year
+    })
+    console.log(isSemesterExists)
+
+    if(isSemesterExists){
+      throw new Error("semester already exists")
+    }
+
+    next()
+
+  })
+
 
 export const AcademicSemester = model<TacademicSemester>("AcademicSemester",academicSemesterSchema)
